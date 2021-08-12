@@ -1,0 +1,17 @@
+ENTITY Mux2x1 IS
+	 PORT (
+		A : IN BIT;
+		S : IN BIT;
+		X : OUT BIT
+	 );
+END ENTITY;
+	
+ARCHITECTURE Mux2x1_arch OF Mux2x1 IS
+	SIGNAL NS: BIT;
+	SIGNAL NA: BIT;
+BEGIN
+	 NS <= NOT S;
+	 NA <= NOT A;
+	 X <= (S AND NA) OR (NS AND A);
+	 
+END ARCHITECTURE;
